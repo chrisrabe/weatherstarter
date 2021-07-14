@@ -30,25 +30,22 @@ const App: React.FC = () => {
   const [weatherData, setWeatherData] = useState<WeatherData | undefined>(
     undefined
   );
-  const [curOption, setCurOption] = useState(options[0]);
+  const [city, setCity] = useState(options[0]);
 
   useEffect(() => {
-    getCityWeather("Brisbane")
+    setWeatherData(undefined);
+    getCityWeather(city)
       .then((res) => {
         setWeatherData(res);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [setWeatherData]);
+  }, [city, setWeatherData]);
 
   return (
     <MainContainer>
-      <Dropdown
-        curOption={curOption}
-        options={options}
-        setCurOption={setCurOption}
-      />
+      <Dropdown curOption={city} options={options} setCurOption={setCity} />
       <WeatherContainer>
         {weatherData ? (
           <WeatherInfo
