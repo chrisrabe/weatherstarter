@@ -1,16 +1,23 @@
 import React from "react";
 import styled from "styled-components";
-import Weather from "./components/Weather";
+import WeatherInfo from "./components/WeatherInfo";
+import Dropdown from "./components/Dropdown";
 
 const MainContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+  border: #333333 solid 1px;
 `;
 
 const App: React.FC = () => {
   return (
     <MainContainer>
-      <Weather />
+      <WeatherInfo />
+      <Dropdown />
     </MainContainer>
   );
 };
