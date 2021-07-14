@@ -24,12 +24,18 @@ export const getCityWeather = async (city: string): Promise<WeatherData> => {
 export const getCityFromCoordinates = async (
   longitude: number,
   latitude: number
-): Promise<string> => {
-  const { data } = await positionStackService("/reverse", {
+): Promise<string | undefined> => {
+  const { data: reqData } = await positionStackService("/reverse", {
     params: {
       access_key: config.positionStackKey,
       query: `${latitude},${longitude}`,
     },
   });
-  return data;
+  const { data } = reqData;
+  if (data.length > 0) {
+    const result = data[0];
+    return result.county ? result.county : result.region;
+  } else {
+    return undefined;
+  }
 };

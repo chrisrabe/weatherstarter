@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import WeatherInfo from "./components/WeatherInfo";
 import Dropdown from "./components/Dropdown";
-import { getCityWeather } from "./api";
+import { getCityWeather, getCityFromCoordinates } from "./api";
 import { WeatherData } from "./types";
 
 const MainContainer = styled.div`
@@ -32,6 +32,7 @@ const App: React.FC = () => {
   );
   const [city, setCity] = useState(options[0]);
 
+  // Get city weather data
   useEffect(() => {
     setWeatherData(undefined);
     getCityWeather(city)
@@ -43,11 +44,19 @@ const App: React.FC = () => {
       });
   }, [city, setWeatherData]);
 
+  // Update user location
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position);
+      const { longitude, latitude } = position.coords;
+      getCityFromCoordinates(longitude, latitude)
+        .then((res) => {
+          if (res !== undefined) {
+            setCity(res);
+          }
+        })
+        .catch((e) => console.log(e));
     });
-  }, []);
+  }, [setCity]);
 
   return (
     <MainContainer>
