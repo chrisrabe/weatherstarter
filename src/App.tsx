@@ -43,6 +43,12 @@ const App: React.FC = () => {
       });
   }, [city, setWeatherData]);
 
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position);
+    });
+  }, []);
+
   return (
     <MainContainer>
       <Dropdown curOption={city} options={options} setCurOption={setCity} />

@@ -1,4 +1,6 @@
 {
   "weatherApi": "http://api.openweathermap.org/data/2.5",
-  "apiKey": ""
+  "weatherApiKey": "",
+  "positionStackApi": "http://api.positionstack/v1",
+  "positionStackKey": ""
 }
