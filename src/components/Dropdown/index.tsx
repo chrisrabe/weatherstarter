@@ -6,10 +6,14 @@ import "./styles.css";
 // Note: Library uses CSS for styling
 // So we cannot use styled components here
 
-const options = ["Brisbane", "Sydney", "Melbourne"];
+interface DropdownProps {
+  options: string[];
+  curOption: string;
+  setCurOption: (option: string) => void;
+}
 
-const Dropdown: React.FC = () => {
-  const [curOption, setCurOption] = useState(options[0]);
+const Dropdown: React.FC<DropdownProps> = (props) => {
+  const { options, curOption, setCurOption } = props;
 
   return (
     <RDropdown

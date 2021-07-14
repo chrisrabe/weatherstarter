@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import WeatherInfo from "./components/WeatherInfo";
 import Dropdown from "./components/Dropdown";
@@ -13,14 +13,21 @@ const MainContainer = styled.div`
   border: #333333 solid 1px;
 `;
 
+const options = ["Brisbane", "Sydney", "Melbourne"];
+
 const App: React.FC = () => {
   const temperature = 17;
   const weather = "Light Showers";
   const iconUrl = "http://openweathermap.org/img/wn/10d@2x.png";
+  const [curOption, setCurOption] = useState(options[0]);
 
   return (
     <MainContainer>
-      <Dropdown />
+      <Dropdown
+        curOption={curOption}
+        options={options}
+        setCurOption={setCurOption}
+      />
       <WeatherInfo
         temperature={temperature}
         weather={weather}
