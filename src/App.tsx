@@ -14,9 +14,17 @@ const MainContainer = styled.div`
 `;
 
 const App: React.FC = () => {
+  const temperature = 17;
+  const weather = "Light Showers";
+  const iconUrl = "http://openweathermap.org/img/wn/10d@2x.png";
+
   return (
     <MainContainer>
-      <WeatherInfo />
+      <WeatherInfo
+        temperature={temperature}
+        weather={weather}
+        iconUrl={iconUrl}
+      />
       <Dropdown />
     </MainContainer>
   );
