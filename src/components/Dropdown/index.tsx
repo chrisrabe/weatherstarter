@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { default as RDropdown } from "react-dropdown";
 import "react-dropdown/style.css";
 import "./styles.css";

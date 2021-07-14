@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, TemperatureText, WeatherIcon, WeatherText } from "./styles";
+import { TemperatureText, WeatherIcon, WeatherText } from "./styles";
 
 interface WeatherInfoProps {
   temperature: number;
@@ -11,7 +11,7 @@ const WeatherInfo: React.FC<WeatherInfoProps> = (props) => {
   const { temperature, weather, iconUrl } = props;
 
   return (
-    <Container>
+    <>
       <div>
         <TemperatureText>{temperature}°C</TemperatureText>
         <WeatherText>{weather}</WeatherText>
@@ -19,7 +19,7 @@ const WeatherInfo: React.FC<WeatherInfoProps> = (props) => {
       <div>
         <WeatherIcon src={iconUrl} alt={weather} />
       </div>
-    </Container>
+    </>
   );
 };
 
