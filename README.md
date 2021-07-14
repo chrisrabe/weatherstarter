@@ -2,7 +2,9 @@
 
 ## Solution
 
-Created a widget that can be installed as a Chrome Extension
+Created a widget that can be installed as a Chrome Extension.
+
+[See demo here](docs/demo.mov)
 
 ## Getting started
 
