@@ -5,7 +5,8 @@ export const Container = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2vmin;
+  margin-top: 2vmin;
+  border-top: rgba(0,0,0, 0.2) solid 1px;
 `;
 
 export const TemperatureText = styled.h1`

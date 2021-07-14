@@ -20,12 +20,12 @@ const App: React.FC = () => {
 
   return (
     <MainContainer>
+      <Dropdown />
       <WeatherInfo
         temperature={temperature}
         weather={weather}
         iconUrl={iconUrl}
       />
-      <Dropdown />
     </MainContainer>
   );
 };
