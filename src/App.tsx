@@ -20,7 +20,7 @@ export const WeatherContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-top: 2vmin;
+  margin-top: 10%;
   border-top: rgba(0, 0, 0, 0.2) solid 1px;
 `;
 
